@@ -39,7 +39,7 @@ const Registration = () => {
           <input
             type="submit"
             value="Registration"
-            className="bg-green-600 px-20 py-2 text-white font-bold rounded-md mt-4"
+            className="bg-green-600 px-20 py-2 text-white font-bold rounded-md mt-4 cursor-pointer"
           />
         </div>
       </form>

@@ -5,6 +5,7 @@ import Login from '../components/Login/Login'
 import NotFound from '../components/NotFound/NotFound'
 import Orders from '../components/Orders/Orders'
 import Products from '../components/Products/Products'
+import Profile from '../components/Profile/Profile'
 import Registration from '../components/Registration/Registration'
 import './App.css'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

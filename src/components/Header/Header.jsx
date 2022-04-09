@@ -7,8 +7,7 @@ import app from "../../firebase.init";
 const auth = getAuth(app);
 
 const Header = () => {
-  const [user, lodding, error] = useAuthState(auth);
-  console.log(error);
+  const [user] = useAuthState(auth);
   return (
     <div className="  text-[18px] py-4 bg-slate-900 text-white font-bold">
       <nav className="flex justify-around">

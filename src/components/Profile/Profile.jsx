@@ -9,11 +9,9 @@ const auth = getAuth(app);
 const Profile = () => {
   const [user] = useAuthState(auth);
   console.log(user);
-  const navigate = useNavigate();
   const handleSingOut = (e) => {
     e.preventDefault();
     signOut(auth);
-    navigate("/registration");
   };
   return (
     <div className="w-1/3 mx-auto shadow-lg mt-6 p-5">

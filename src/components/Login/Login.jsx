@@ -5,22 +5,27 @@ import {
   useSignInWithGoogle,
   useSignInWithFacebook,
 } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const auth = getAuth(app);
 const Login = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
   const [signInWithGoogle] = useSignInWithGoogle(auth);
-  const [singInWithFacebook] = useSignInWithFacebook(auth);
+  // const [singInWithFacebook] = useSignInWithFacebook(auth);
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSingIn = (e) => {
     e.preventDefault();
-    signInWithGoogle();
-    console.log();
+    signInWithGoogle().then(() => {
+      navigate(from, { replace: true });
+    });
   };
 
-  const handleFacebookSingIn = (e) => {
-    e.preventDefault();
-    singInWithFacebook();
-  };
+  // const handleFacebookSingIn = (e) => {
+  //   e.preventDefault();
+  //   singInWithFacebook();
+  // };
   return (
     <div className="flex justify-center mx-auto mt-11 ">
       <form>
@@ -61,7 +66,7 @@ const Login = () => {
             Sing With Google
           </button>
           <button
-            onClick={handleFacebookSingIn}
+            // onClick={handleFacebookSingIn}
             className="bg-sky-800 py-2 px-15 p-2 rounded-md text-white font-bold mx-3"
           >
             Sing With Facebook
